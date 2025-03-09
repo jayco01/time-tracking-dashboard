@@ -237,24 +237,23 @@ body{
 }
 
 .title {
-    font-size: clamp(1.125rem,5vw,18px);
+    font-size: clamp(1.125rem,4vw,18px);
     font-weight: var(--fw-regular);
 }
 
 .time {
-    font-size: clamp(2rem, 9vw, 3.5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: var(--fw-thin);
 }
 
 .history {
-    font-size: clamp(0.938rem, 4vw, 15px);
+    font-size: clamp(0.938rem, 3vw, 15px);
     font-weight: var(--fw-regular);
     color: var(--clr-pale-blue);
 }
 
 .card__icon {
     position: absolute;
-    
     right: 0.5rem;
     top:-0.6rem
 }
@@ -288,6 +287,44 @@ body{
     grid-area: self-care;
     background-color: var(--clr-soft-orange);
     border-radius: 0.875rem;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+
+        grid-template-areas: 
+        "avatar work play"
+        "avatar study exercise"
+        "avatar social self-care"
+        ;
+        grid-auto-rows: auto; /* Rows adjust based on content */
+        grid-auto-columns: auto; /* Columns adjust based on content */
+
+    }
+
+    .card-avatar{
+        grid-area: avatar;
+        max-width: 255px;
+        height: 100%;
+    }
+
+    .avatar {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .buttons-wrapper {
+        flex-direction: column;
+        align-items: start;
+
+    }
+
+    .card, .card__back{
+        height: 100%;
+        max-width: 255px;
+    }
+
+    
 }
 
 @media screen and (min-width: 1024px) {
