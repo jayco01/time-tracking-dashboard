@@ -104,7 +104,7 @@ textarea:not([rows]) {
     --fw-bold:500;
 }
 
-p,h1,h2,a,li {
+p,h1,h2,a,li, button {
     font-family: var(--base-font);
 }
 
@@ -128,17 +128,21 @@ body{
     "exercise"
     "social"
     "self-care"
-
     ;
     place-items: center;
     gap: 1rem;
     margin: 5rem auto;
+    grid-auto-rows: auto; /* Rows adjust based on content */
+    grid-auto-columns: auto; /* Columns adjust based on content */
 }
+
 
 .card-avatar {
     color: var(--clr-white);
     max-width: 327px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .avatar {
@@ -151,7 +155,7 @@ body{
     align-items: center;
     padding: 2rem;
     border-radius: 0.875rem;
-
+    height: clamp(8.313rem,30vw,354px);
 }
 
 .avatar__img img{
@@ -161,14 +165,14 @@ body{
 }
 
 .avatar__report {
-    font-size: 0.938rem;
+    font-size: clamp(0.938rem, 4vw, 15px);
     font-weight: var(--fw-thin);
     color: var(--clr-pale-blue);
 }
 
 .avatar__name {
     font-weight: var(--fw-thin);
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
 }
 
 .buttons-wrapper {
@@ -179,13 +183,14 @@ body{
     align-items: center;
     padding: 1rem;
     border-radius: 0.875rem;
-    
+    height: clamp(4.375rem,20vw,164px);
 }
 
 .button {
     border: none;
     color: var(--clr-pale-blue);
     background-color: var(--clr-dark-blue);
+    cursor: pointer;
 }
 
 .button:active, .button:focus-visible {
@@ -219,6 +224,8 @@ body{
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 100%;
+    max-height: 85%
 }
 
 .card__heading,.card__stats {
@@ -230,17 +237,17 @@ body{
 }
 
 .title {
-    font-size: 1.125rem;
+    font-size: clamp(1.125rem,5vw,18px);
     font-weight: var(--fw-regular);
 }
 
 .time {
-    font-size: 2rem;
+    font-size: clamp(2rem, 9vw, 3.5rem);
     font-weight: var(--fw-thin);
 }
 
 .history {
-    font-size: 0.938;
+    font-size: clamp(0.938rem, 4vw, 15px);
     font-weight: var(--fw-regular);
     color: var(--clr-pale-blue);
 }
@@ -281,4 +288,51 @@ body{
     grid-area: self-care;
     background-color: var(--clr-soft-orange);
     border-radius: 0.875rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+
+        grid-template-areas: 
+        "avatar work play study"
+        "avatar exercise social self-care"
+        ;
+        grid-auto-rows: auto; /* Rows adjust based on content */
+        grid-auto-columns: auto; /* Columns adjust based on content */
+
+    }
+
+    .card-avatar{
+        grid-area: avatar;
+        max-width: 255px;
+        height: 100%;
+    }
+
+    .avatar {
+        flex-direction: column;
+        align-items: start;
+        gap: 2rem;
+        /* min-height: 255px; */
+    }
+
+    .buttons-wrapper {
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    .card, .card__back{
+
+        height: 100%;
+        max-width: 255px;
+    }
+
+
+    .card__stats{
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+    
 }
