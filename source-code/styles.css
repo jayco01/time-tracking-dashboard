@@ -179,8 +179,19 @@ body{
     align-items: center;
     padding: 1rem;
     border-radius: 0.875rem;
-    color: var(--clr-pale-blue);
+    
 }
+
+.button {
+    border: none;
+    color: var(--clr-pale-blue);
+    background-color: var(--clr-dark-blue);
+}
+
+.button:active, .button:focus-visible {
+    color: var(--clr-white);
+}
+
 
 .card {
     max-width: 327px;
