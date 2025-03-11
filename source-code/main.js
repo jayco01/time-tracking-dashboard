@@ -18,15 +18,21 @@ const fetchDataAndPopulate = (timeframe) => {
     })
     .then(data => {
       data.forEach((item, index) => {
-        // Update the title (just in case the title changes dynamically)
+        // Update the title
         titles[index].textContent = item.title;
 
         // Update current time
         currentTimes[index].textContent = `${item.timeframes[timeframe].current}hrs`;
 
         // Update previous time with appropriate label
-        const previousLabel = timeframe === "daily" ? "Yesterday" :
-                              timeframe === "weekly" ? "Last Week" : "Last Month";
+        let previousLabel;
+        if (timeframe === "daily") {
+            previousLabel = "Yesterday";
+        } else if (timeframe === "weekly") {
+            previousLabel = "Last Week";
+        } else {
+            previousLabel = "Last Month";
+        }
         previousTimes[index].textContent = `${previousLabel} - ${item.timeframes[timeframe].previous}hrs`;
       });
     })
