@@ -159,7 +159,7 @@ body{
 }
 
 .avatar__img img{
-    width: 4rem;
+    width: clamp(4rem,8vw,6rem);
     border: 0.2rem solid white;
     border-radius: 100vh;
 }
