@@ -22,7 +22,12 @@ const fetchDataAndPopulate = (timeframe) => {
         titles[index].textContent = item.title;
 
         // Update current time
-        currentTimes[index].textContent = `${item.timeframes[timeframe].current}hrs`;
+        const currentHour = item.timeframes[timeframe].current;
+        let currentUnit = 'hrs';
+        if (currentHour === 1) {
+          currentUnit = 'hr';
+        }
+        currentTimes[index].textContent = `${currentHour}${currentUnit}`;
 
         // Update previous time with appropriate label
         let previousLabel;
@@ -44,5 +49,5 @@ dailyBtn.addEventListener('click', () => fetchDataAndPopulate('daily'));
 weeklyBtn.addEventListener('click', () => fetchDataAndPopulate('weekly'));
 monthlyBtn.addEventListener('click', () => fetchDataAndPopulate('monthly'));
 
-// Load default data (e.g., weekly view) on page load
+// Load default data
 window.addEventListener('DOMContentLoaded', () => fetchDataAndPopulate('weekly'));
