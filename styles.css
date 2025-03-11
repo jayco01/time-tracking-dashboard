@@ -236,17 +236,17 @@ body{
 }
 
 .title {
-    font-size: clamp(1.125rem,4vw,18px);
+    font-size: clamp(1.125rem,3.5vw,18px);
     font-weight: var(--fw-regular);
 }
 
 .time {
-    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
     font-weight: var(--fw-thin);
 }
 
 .history {
-    font-size: clamp(0.938rem, 3vw, 15px);
+    font-size: clamp(0.938rem, 2vw, 15px);
     font-weight: var(--fw-regular);
     color: var(--clr-pale-blue);
 }
