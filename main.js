@@ -9,6 +9,27 @@ const titles = document.querySelectorAll('.title');
 const currentTimes = document.querySelectorAll('.time');
 const previousTimes = document.querySelectorAll('.history');
 
+
+dailyBtn.addEventListener("click", activateDailyButton);
+weeklyBtn.addEventListener("click", activateWeeklyButton);
+monthlyBtn.addEventListener("click", activateMonthlyButton);
+
+function activateDailyButton() {
+  dailyBtn.style.color = "white"
+  weeklyBtn.style.color = "hsl(235, 45%, 61%)"
+  monthlyBtn.style.color = "hsl(235, 45%, 61%)"
+}
+function activateWeeklyButton() {
+  dailyBtn.style.color = "hsl(235, 45%, 61%)"
+  weeklyBtn.style.color = "white"
+  monthlyBtn.style.color = "hsl(235, 45%, 61%)"
+}
+function activateMonthlyButton() {
+  dailyBtn.style.color = "hsl(235, 45%, 61%)"
+  weeklyBtn.style.color = "hsl(235, 45%, 61%)"
+  monthlyBtn.style.color = "white"
+}
+
 // Function to fetch data and update the DOM
 const fetchDataAndPopulate = (timeframe) => {
   fetch('data.json')
